@@ -81,7 +81,7 @@ const Modal = ({ show, handleShow }) => {
               <div className="floor top">
                 <p>{count} Selected</p>
                 <span className="transfer-to" onClick={() => setComp(false)}>
-                  <span>TRANSFER T0</span>
+                  <span>TRANSFER TO</span>
                   <MdArrowForwardIos />
                 </span>
               </div>
@@ -111,7 +111,7 @@ const Modal = ({ show, handleShow }) => {
                 <div className="floor top">
                   <span className="transfer-to" onClick={() => setComp(true)}>
                     <MdArrowBackIos />
-                    <span>TRANSFER T0</span>
+                    <span>TRANSFER TO</span>
                   </span>
                   <button className="transfer-form-btn">
                     Transfer {count} {count > 1 ? "Tickets" : "Ticket"}
