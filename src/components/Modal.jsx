@@ -39,10 +39,10 @@ const Modal = ({ show, handleShow }) => {
         id="modal-container"
       >
         <div className="mod-container">
-          <h6>SELECT TICKETS TO TRANSFER</h6>
-          <div className="line"></div>
           {comp ? (
             <>
+              <h5>SELECT TICKETS TO TRANSFER</h5>
+              <div className="line"></div>
               <div className="imark">
                 <span>i</span>
                 <p>
@@ -88,6 +88,8 @@ const Modal = ({ show, handleShow }) => {
             </>
           ) : (
             <>
+              <h5>TRANSFER TICKETS</h5>
+              <div className="line"></div>
               <form action="" className="modal-form">
                 <p>{count} Ticket Selected</p>
                 <span className="span">
