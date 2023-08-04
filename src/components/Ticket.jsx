@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/Ticket.css";
 import btn from "../images/button-img.png";
 import ver from "../images/verified-img.jpg";
@@ -7,6 +7,15 @@ import { Link } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 
 const Ticket = () => {
+  const [activeDot, setActiveDot] = useState(1);
+
+  let handleScroll = (e) => {
+    if (e.target.scrollLeft > 200) {
+      setActiveDot(2);
+    } else {
+      setActiveDot(1);
+    }
+  };
   return (
     <div>
       <nav>
@@ -14,7 +23,7 @@ const Ticket = () => {
         <p>My Tickets</p>
       </nav>
       <div className="ticket-container">
-        <div className="tickets">
+        <div className="tickets" onScroll={handleScroll}>
           {[1, 2].map((x, index) => {
             return (
               <div className="ticket" key={index}>
@@ -55,6 +64,10 @@ const Ticket = () => {
               </div>
             );
           })}
+        </div>
+        <div className="dots-container">
+          <div className={activeDot === 1 ? "active-dot" : "dot"}></div>
+          <div className={activeDot === 2 ? "active-dot" : "dot"}></div>
         </div>
         <div className="btn-containetr">
           <button className="transfer-btn" id="modal-button">

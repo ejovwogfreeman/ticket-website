@@ -34,7 +34,7 @@ nav .icon {
   overflow-x: ellipsis;
   overflow-x: scroll;
   padding: 20px 0px !important;
-  margin: 20px 0px !important;
+  margin: 0px 0px !important;
 }
 
 .ticket-container .ticket {
@@ -300,7 +300,7 @@ section a {
   height: 10px;
   border-radius: 50%;
   background-color: #ccc;
-  margin: 10px;
+  margin: 3px !important;
 }
 
 .active-dot {
@@ -308,13 +308,14 @@ section a {
   height: 10px;
   border-radius: 50%;
   background-color: #333;
-  margin: 10px;
+  margin: 3px !important;
 }
 .dots-container {
-  position: fixed;
-  top: 0px;
-  left: 0px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin-bottom: 20px !important;
 }
 
 ::-webkit-scrollbar {
