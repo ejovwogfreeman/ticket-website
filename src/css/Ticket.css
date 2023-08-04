@@ -370,6 +370,8 @@ section a {
   color: #026cdf;
   cursor: pointer;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .modal-form {
