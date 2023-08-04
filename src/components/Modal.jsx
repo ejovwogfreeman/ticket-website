@@ -110,7 +110,7 @@ const Modal = ({ show, handleShow }) => {
                 <label htmlFor="">Note</label>
                 <textarea name="" id="" cols="30" rows="10"></textarea>
                 <div className="line"></div>
-                <div className="floor top">
+                <div className="bottom top">
                   <span className="transfer-to" onClick={() => setComp(true)}>
                     <MdArrowBackIos />
                     <span>TRANSFER TO</span>

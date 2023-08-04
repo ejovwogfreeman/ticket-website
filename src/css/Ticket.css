@@ -426,3 +426,18 @@ section a {
   padding: 5px !important;
   margin-bottom: 10px !important;
 }
+
+.modal-container .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0px !important;
+}
+
+.transfer-form-btn {
+  background-color: #026cdf;
+  color: white;
+  padding: 10px !important;
+  margin-right: 0px !important;
+  cursor: pointer;
+}
