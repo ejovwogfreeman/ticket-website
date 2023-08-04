@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdClose } from "react-icons/md";
+import "../css/Ticket.css";
+import { Link } from "react-router-dom";
+import { IoMdCheckmark } from "react-icons/io";
 
-const Modal = () => {
+const Modal = ({ show, handleShow }) => {
+  let [click1, setClick1] = useState(true);
+  let [click2, setClick2] = useState(true);
+  let [count, setCount] = useState(0);
+
+  const handleClick1 = () => {
+    if (click1 === true) {
+      setCount((count += 1));
+      setClick1(false);
+    } else {
+      setCount((count -= 1));
+      setClick1(true);
+    }
+  };
+  const handleClick2 = () => {
+    if (click2 === true) {
+      setCount((count += 1));
+      setClick2(false);
+    } else {
+      setCount((count -= 1));
+      setClick2(true);
+    }
+  };
   return (
     <div>
-      <div id="bg"></div>
-      <div className="modal-container" id="modal-container">
+      <div id="bg" className={`${show ? "bg-show" : "bg-hide"}`}></div>
+      <div
+        className={`modal-container ${
+          show ? "modal-container-show" : "modal-container-hide"
+        }`}
+        id="modal-container"
+      >
         <div className="mod-container">
           <h6>SELECT TICKETS TO TRANSFER</h6>
           <div className="line"></div>
@@ -26,16 +56,26 @@ const Modal = () => {
           <div className="seat">
             <div>
               <p>SEAT-</p>
-              <span></span>
+              <span
+                onClick={handleClick1}
+                className={`${click1 ? "unclicked" : "clicked"}`}
+              >
+                <IoMdCheckmark />
+              </span>
             </div>
             <div>
               <p>SEAT-</p>
-              <span></span>
+              <span
+                onClick={handleClick2}
+                className={`${click2 ? "unclicked" : "clicked"}`}
+              >
+                <IoMdCheckmark />
+              </span>
             </div>
           </div>
           <div className="line"></div>
           <div className="floor top">
-            <p>0 Selected</p>
+            <p>{count} Selected</p>
             <span>
               <Link to="">
                 TRANSFER T0
@@ -43,7 +83,7 @@ const Modal = () => {
               </Link>
             </span>
           </div>
-          <MdClose />
+          <MdClose className="close-icon" onClick={handleShow} />
         </div>
       </div>
     </div>

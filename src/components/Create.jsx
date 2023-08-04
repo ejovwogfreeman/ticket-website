@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Create = () => {
+  const [type, setType] = useState(null);
   const [sec, setSec] = useState(null);
   const [row, setRow] = useState(null);
   const [seat, setSeat] = useState(null);
@@ -12,6 +13,13 @@ const Create = () => {
 
   return (
     <div>
+      <label htmlFor="">TYPE</label>
+      <input
+        type="text"
+        value={type}
+        onChange={(e) => setType(e.target.value)}
+        placeholder="Please enter ticket type"
+      />
       <label htmlFor="">SEC</label>
       <input
         type="text"

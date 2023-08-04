@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Edit = () => {
+  const [type, setType] = useState(null);
   const [sec, setSec] = useState(null);
   const [row, setRow] = useState(null);
   const [seat, setSeat] = useState(null);
@@ -8,10 +9,16 @@ const Edit = () => {
   const [title, setTitle] = useState(null);
   const [date, setDate] = useState(null);
   const [venue, setVenue] = useState(null);
-  const [image, setImage] = useState(null);
 
   return (
     <div>
+      <label htmlFor="">TYPE</label>
+      <input
+        type="text"
+        value={type}
+        onChange={(e) => setType(e.target.value)}
+        placeholder="Please enter ticket type"
+      />
       <label htmlFor="">SEC</label>
       <input
         type="text"
