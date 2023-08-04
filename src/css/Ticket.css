@@ -316,3 +316,16 @@ section a {
   left: 0px;
   display: flex;
 }
+
+::-webkit-scrollbar {
+  width: 6px; /* Change the width as needed */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Hide the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
