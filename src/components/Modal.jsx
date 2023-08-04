@@ -113,7 +113,7 @@ const Modal = ({ show, handleShow }) => {
                 <div className="bottom top">
                   <span className="transfer-to" onClick={() => setComp(true)}>
                     <MdArrowBackIos />
-                    <span>TRANSFER TO</span>
+                    <span>BACK</span>
                   </span>
                   <button className="transfer-form-btn">
                     Transfer {count} {count > 1 ? "Tickets" : "Ticket"}
