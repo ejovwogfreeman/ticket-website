@@ -53,8 +53,8 @@ const Modal = ({ show, handleShow }) => {
               <div className="floor">
                 <p>Sec Floor, Row GA</p>
                 <span>
-                  <iconify-icon icon="ion:ticket-sharp"></iconify-icon>&nbsp;2
-                  tickets
+                  <iconify-icon icon="ion:ticket-sharp"></iconify-icon>&nbsp;
+                  {count} {count > 1 ? "Tickets" : "Ticket"}
                 </span>
               </div>
               <div className="seat">
