@@ -384,6 +384,7 @@ section a {
 .modal-form .span {
   margin-bottom: 10px !important;
   display: block;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .transfer-form-btn {
