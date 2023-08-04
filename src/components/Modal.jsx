@@ -91,7 +91,9 @@ const Modal = ({ show, handleShow }) => {
               <h5>TRANSFER TICKETS</h5>
               <div className="line"></div>
               <form action="" className="modal-form">
-                <p>{count} Ticket Selected</p>
+                <p>
+                  {count} {count > 1 ? "Tickets Selected" : "Ticket Selected"}
+                </p>
                 <span className="span">
                   Sec
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
