@@ -1,4 +1,4 @@
-const Blog = require("../models/ticketModel");
+const Ticket = require("../models/ticketModel");
 
 const createTicket = async (req, res) => {
   try {
@@ -43,7 +43,7 @@ const updateTicket = async (req, res) => {
 
     const ticketId = req.params.id;
 
-    const ticket = await Blog.findById(ticketId);
+    const ticket = await Ticket.findById(ticketId);
 
     if (!ticket) {
       return res.status(404).json({ error: "Ticket not found" });
@@ -71,7 +71,7 @@ const deleteTicket = async (req, res) => {
   try {
     const ticketId = req.params.id;
 
-    const ticket = await Blog.findById(ticketId);
+    const ticket = await Ticket.findById(ticketId);
 
     if (!ticket) {
       return res.status(404).json({ error: "Ticket not found" });
@@ -86,4 +86,38 @@ const deleteTicket = async (req, res) => {
   }
 };
 
-module.exports = { createTicket, updateTicket, deleteTicket };
+const getAllTickets = async (req, res) => {
+  try {
+    const allBlogs = await Ticket.find();
+
+    res.status(200).json(allBlogs);
+  } catch (error) {
+    console.error("Error getting all blogs:", error);
+    res.status(500).json({ error: "Failed to get blogs" });
+  }
+};
+
+const getSingleTicket = async (req, res) => {
+  try {
+    const ticketId = req.params.id;
+
+    const ticket = await Ticket.findById(ticketId);
+
+    if (!ticket) {
+      return res.status(404).json({ error: "Ticket not found" });
+    }
+
+    res.status(200).json(ticket);
+  } catch (error) {
+    console.error("Error getting ticket by ID:", error);
+    res.status(500).json({ error: "Failed to get ticket" });
+  }
+};
+
+module.exports = {
+  createTicket,
+  updateTicket,
+  deleteTicket,
+  getAllTickets,
+  getSingleTicket,
+};
