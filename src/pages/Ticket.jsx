@@ -5,7 +5,7 @@ import ver from "../images/verified-img.jpg";
 import tick from "../images/ticket-img.jpg";
 import { Link } from "react-router-dom";
 import { MdClose } from "react-icons/md";
-import Modal from "./Modal";
+import Modal from "../components/Modal";
 
 const Ticket = () => {
   const [show, setShow] = useState(false);
