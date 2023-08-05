@@ -13,8 +13,8 @@ const router = express.Router();
 
 router.get("/", protect, getAllTickets);
 router.get("/:id", protect, getSingleTicket);
-router.post("/ticket/create", protect, upload.array("files"), createTicket);
-router.put("/ticket/update", protect, updateTicket);
-router.delete("/ticket/delete", protect, deleteTicket);
+router.post("/create", protect, upload.array("files"), createTicket);
+router.put("/update/:id", protect, updateTicket);
+router.delete("/delete/:id", protect, deleteTicket);
 
 module.exports = router;

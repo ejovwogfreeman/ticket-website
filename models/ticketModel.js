@@ -9,7 +9,6 @@ const ticketSchema = new mongoose.Schema(
     sec: {
       type: String,
       required: true,
-      unique: true,
     },
     row: {
       type: String,

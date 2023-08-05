@@ -7,12 +7,12 @@ const accessToken = require("../middlewares/accessTokenMiddleware");
 /////////////////////////////
 
 const registerUser = async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, password } = req.body;
   try {
-    if (!username || !email || !password) {
+    if (!username || !password) {
       res.status(400).json({ message: "please fill all fields" });
     } else {
-      const userExists = await User.findOne({ email });
+      const userExists = await User.findOne({ username });
       if (userExists) {
         res.status(400).send({ message: "User already exists" });
       } else {
@@ -21,7 +21,6 @@ const registerUser = async (req, res) => {
 
         const user = new User({
           username,
-          email,
           password: hashedPassword,
         });
 
@@ -48,12 +47,12 @@ const registerUser = async (req, res) => {
 /////////////////////////////
 
 const loginUser = async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
   try {
-    if (!email || !password) {
+    if (!username || !password) {
       res.status(400).json({ message: "please fill all fields" });
     } else {
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ username });
       if (user) {
         const hashedPassword = user.password;
         const comparedPassword = await bcrypt.compare(password, hashedPassword);

@@ -4,8 +4,8 @@ const createTicket = async (req, res) => {
   try {
     const { type, sec, row, seat, artist, title, date, venue, image } =
       req.body;
+    let filesArray = [];
     if (req.files && req.files.length > 0) {
-      let filesArray = [];
       req.files.forEach((element) => {
         const file = {
           fileName: element.originalname,
@@ -16,7 +16,7 @@ const createTicket = async (req, res) => {
       });
     }
 
-    const newTicket = new Blog({
+    const newTicket = new Ticket({
       type,
       sec,
       row,
@@ -32,57 +32,57 @@ const createTicket = async (req, res) => {
 
     res.status(201).json(savedTicket);
   } catch (error) {
-    console.error("Error creating blog:", error);
-    res.status(500).json({ error: "Failed to create blog" });
+    console.log(error);
+    res.status(500).json({ error: "Error creating Ticket" });
   }
 };
 
 const updateTicket = async (req, res) => {
   try {
+    const ticketId = req.params.id;
+    console.log("Updating ticket with ID:", ticketId);
+
     const { type, sec, row, seat, artist, title, date, venue } = req.body;
 
-    const ticketId = req.params.id;
+    const updatedFields = {
+      type,
+      sec,
+      row,
+      seat,
+      artist,
+      title,
+      date,
+      venue,
+    };
 
-    const ticket = await Ticket.findById(ticketId);
+    const updateQuery = {
+      $set: updatedFields,
+      $unset: { image: 1 },
+    };
+
+    const ticket = await Ticket.findByIdAndUpdate(ticketId, updateQuery, {
+      new: true,
+    });
 
     if (!ticket) {
       return res.status(404).json({ error: "Ticket not found" });
     }
 
-    ticket.type = type;
-    ticket.sec = sec;
-    ticket.row = row;
-    ticket.seat = seat;
-    ticket.artist = artist;
-    ticket.title = title;
-    ticket.date = date;
-    ticket.venue = venue;
-
-    const updatedTicket = await ticket.save();
-
-    res.status(200).json(updatedTicket);
+    console.log("Updated ticket:", ticket);
+    res.status(200).json(ticket);
   } catch (error) {
-    console.error("Error updating blog:", error);
-    res.status(500).json({ error: "Failed to update blog" });
+    console.error("Error updating ticket:", error);
+    res.status(500).json({ error: "Failed to update ticket" });
   }
 };
 
 const deleteTicket = async (req, res) => {
   try {
-    const ticketId = req.params.id;
-
-    const ticket = await Ticket.findById(ticketId);
-
-    if (!ticket) {
-      return res.status(404).json({ error: "Ticket not found" });
-    }
-
-    await ticket.remove();
-
-    res.status(200).json({ message: "Blog deleted successfully" });
+    await Ticket.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "Ticket deleted successfully" });
   } catch (error) {
-    console.error("Error deleting blog:", error);
-    res.status(500).json({ error: "Failed to delete blog" });
+    console.error("Error deleting ticket:", error);
+    res.status(500).json({ error: "Failed to delete ticket" });
   }
 };
 
@@ -92,8 +92,8 @@ const getAllTickets = async (req, res) => {
 
     res.status(200).json(allBlogs);
   } catch (error) {
-    console.error("Error getting all blogs:", error);
-    res.status(500).json({ error: "Failed to get blogs" });
+    console.error("Error getting all tickets:", error);
+    res.status(500).json({ error: "Failed to get tickets" });
   }
 };
 

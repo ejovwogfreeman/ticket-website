@@ -1,39 +1,50 @@
+// const express = require("express");
+// const protect = require("../middlewares/authMiddleware");
+
+// const router = express.Router();
+
+// router.get("/file/:filename", async (req, res) => {
+//   try {
+//     const file = await gfs.files.findOne({ filename: req.params.filename });
+//     const readStream = gridFsBucket.openDownloadStream(file._id);
+//     readStream.pipe(res);
+//   } catch (error) {
+//     console.log(error);
+//     res.send(error);
+//   }
+// });
+
+// module.exports = router;
+
 const express = require("express");
-const protect = require("../middlewares/authMiddleware");
+const mongoose = require("mongoose");
+const gridfs = require("gridfs-stream");
 
 const router = express.Router();
 
-// router.get("/:fileName", protect, async (req, res) => {
-//   gfs.files.findOne({ fiilename: req.params.fileName }, (err, file) => {
-//     if (!file || !file.length === 0) {
-//       res.status(404).json({
-//         err: "No such file exists",
-//       });
-//     }
-//     if (
-//       file.contentType === "image/png" ||
-//       file.contentType === "image/jpeg" ||
-//       file.contentType === "image/jpg" ||
-//       file.contentType === "image/webp"
-//     ) {
-//       const readStream = gfs.createReadStream(file.fileName);
-//       readStream.pipe(res);
-//     } else {
-//       res.status(404).json({
-//         err: "Not an image",
-//       });
-//     }
-//   });
-// });
+const conn = mongoose.connection;
+let gfs;
+
+conn.once("open", () => {
+  gfs = gridfs(conn.db, mongoose.mongo);
+});
 
 router.get("/file/:filename", async (req, res) => {
   try {
+    if (!gfs) {
+      return res.status(500).json({ error: "GridFS is not initialized" });
+    }
+
     const file = await gfs.files.findOne({ filename: req.params.filename });
-    const readStream = gridFsBucket.openDownloadStream(file._id);
+    if (!file) {
+      return res.status(404).json({ error: "File not found" });
+    }
+
+    const readStream = gfs.createReadStream({ filename: req.params.filename });
     readStream.pipe(res);
   } catch (error) {
-    console.log(error);
-    res.send(error);
+    console.error(error);
+    res.status(500).json({ error: "Error retrieving file" });
   }
 });
 
