@@ -32,7 +32,6 @@ const createTicket = async (req, res) => {
 
     res.status(201).json(savedTicket);
   } catch (error) {
-    console.log(error);
     res.status(500).json({ error: "Error creating Ticket" });
   }
 };
@@ -40,7 +39,6 @@ const createTicket = async (req, res) => {
 const updateTicket = async (req, res) => {
   try {
     const ticketId = req.params.id;
-    console.log("Updating ticket with ID:", ticketId);
 
     const { type, sec, row, seat, artist, title, date, venue } = req.body;
 
@@ -67,8 +65,6 @@ const updateTicket = async (req, res) => {
     if (!ticket) {
       return res.status(404).json({ error: "Ticket not found" });
     }
-
-    console.log("Updated ticket:", ticket);
     res.status(200).json(ticket);
   } catch (error) {
     console.error("Error updating ticket:", error);
