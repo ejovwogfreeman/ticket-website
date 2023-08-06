@@ -18,6 +18,7 @@ form label {
   width: 100%;
   text-align: left;
   margin-bottom: 3px !important;
+  font-weight: bold;
 }
 
 form input {
@@ -30,8 +31,15 @@ form input {
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-form input [type="file"] {
-  background-color: red;
+form button {
+  width: 100%;
+  padding: 10px !important;
+  border-radius: 3px;
+  color: white;
+  background-color: #155fc8;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 form img {
