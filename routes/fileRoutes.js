@@ -29,7 +29,7 @@ conn.once("open", () => {
   gfs = gridfs(conn.db, mongoose.mongo);
 });
 
-router.get("/:filename", async (req, res) => {
+router.get("file/:filename", async (req, res) => {
   try {
     if (!gfs) {
       return res.status(500).json({ error: "GridFS is not initialized" });
