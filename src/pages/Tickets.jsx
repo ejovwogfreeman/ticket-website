@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 const Tickets = () => {
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [textToCopy, setTextToCopy] = useState("Text to copy");
+  const [textToCopy, setTextToCopy] = useState("");
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopyToClipboard = () => {
@@ -66,6 +66,15 @@ const Tickets = () => {
     fetchTickets();
   }, []);
 
+  const findTicketById = (id) => {
+    for (const ticket of tickets) {
+      if (ticket._id === id) {
+        return "https//ticketwebsite.netlify.app/ticket/" + ticket._id;
+      }
+    }
+    return null;
+  };
+
   return (
     <div>
       <Navbar />
@@ -97,8 +106,8 @@ const Tickets = () => {
                     <input
                       disabled
                       type="text"
-                      value={textToCopy}
-                      onChange={(e) => setTextToCopy(e.target.value)}
+                      value={findTicketById(ticket._id)}
+                      style={{ width: "100%" }}
                     />
                     <button
                       onClick={handleCopyToClipboard}
