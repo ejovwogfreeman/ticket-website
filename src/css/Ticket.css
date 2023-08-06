@@ -472,6 +472,8 @@ section a {
   display: flex;
   align-items: center;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 3px !important;
   justify-content: space-between;
   margin-top: 5px !important;
 }

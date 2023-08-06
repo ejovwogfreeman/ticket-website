@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Ticket.css";
 import btn from "../images/button-img.png";
 import ver from "../images/verified-img.jpg";
-import tick from "../images/ticket-img.jpg";
 import { Link } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 import Modal from "../components/Modal";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const Ticket = () => {
+  const params = useParams();
   const [show, setShow] = useState(false);
 
   const handleShow = () => {
@@ -24,6 +26,32 @@ const Ticket = () => {
       setActiveDot(1);
     }
   };
+
+  const [ticket, setTicket] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`https://ticket-website.onrender.com/api/ticket/${params.id}`)
+      .then((response) => {
+        console.log(response.data);
+        setTicket(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching ticket:", error);
+        setLoading(false);
+      });
+  }, [params.id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!ticket) {
+    return <div>Ticket not found.</div>;
+  }
+
   return (
     <div>
       <nav>
@@ -35,28 +63,35 @@ const Ticket = () => {
           {[1, 2].map((x, index) => {
             return (
               <div className="ticket" key={index}>
-                <div className="ticket-nav">Standard Ticket</div>
+                <div className="ticket-nav">{ticket.type}</div>
                 <div className="ticket-nav2">
                   <p>
                     SEC <br />
-                    <strong>Floor</strong>
+                    <strong>{ticket.sec}</strong>
                   </p>
                   <p>
                     ROW
                     <br />
-                    <strong>GA</strong>
+                    <strong>{ticket.row}</strong>
                   </p>
                   <p>
                     SEAT <br />
-                    <strong>-</strong>
+                    <strong>{ticket.seat}</strong>
                   </p>
                 </div>
                 <div className="image-container">
                   <div className="bg"></div>
-                  <img src={tick} alt="ticket-pic" />
+                  <img
+                    src={`https://ticket-website.onrender.com/api/files/${ticket.image[0].link}`}
+                    alt="ticket-pic"
+                  />
                   <div className="text">
-                    <p className="tour">Harry Styles - Love on Tour</p>
-                    <p className="date">Fri Jul 29, 9:00pm • WiZink Center</p>
+                    <p className="tour">
+                      {ticket.artist} - {ticket.title}
+                    </p>
+                    <p className="date">
+                      {ticket.date} • {ticket.venue}
+                    </p>
                   </div>
                 </div>
                 <section>

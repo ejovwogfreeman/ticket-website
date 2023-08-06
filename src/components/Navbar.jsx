@@ -12,8 +12,6 @@ const Navbar = () => {
     <nav className="navBar">
       <Link to="/">TICKETS</Link>
       <Link to="/create">CREATE</Link>
-      {/* <Link to="/edit">EDIT</Link> */}
-      <Link to="/ticket">TICKET</Link>
       <span onClick={logout} style={{ cursor: "pointer" }}>
         LOGOUT
       </span>

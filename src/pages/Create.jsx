@@ -145,7 +145,7 @@ const Create = () => {
           />
           <label htmlFor="">DATE</label>
           <input
-            type="date"
+            type="text"
             value={date}
             name="date"
             onChange={handleChange}

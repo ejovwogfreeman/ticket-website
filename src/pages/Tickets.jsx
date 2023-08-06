@@ -5,20 +5,6 @@ import Navbar from "../components/Navbar";
 const Tickets = () => {
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [textToCopy, setTextToCopy] = useState("");
-  const [isCopied, setIsCopied] = useState(false);
-
-  const handleCopyToClipboard = () => {
-    navigator.clipboard
-      .writeText(textToCopy)
-      .then(() => {
-        setIsCopied(true);
-        setTimeout(() => setIsCopied(false), 1500);
-      })
-      .catch((error) => {
-        console.error("Copy to clipboard failed:", error);
-      });
-  };
 
   const authToken = JSON.parse(localStorage.getItem("user")).token;
   const config = {
@@ -69,7 +55,7 @@ const Tickets = () => {
   const findTicketById = (id) => {
     for (const ticket of tickets) {
       if (ticket._id === id) {
-        return "https//ticketwebsite.netlify.app/ticket/" + ticket._id;
+        return "https://ticketwebsite.netlify.app/ticket/" + ticket._id;
       }
     }
     return null;
@@ -103,23 +89,7 @@ const Tickets = () => {
                     </button>
                   </div>
                   <div className="clipboard">
-                    <input
-                      disabled
-                      type="text"
-                      value={findTicketById(ticket._id)}
-                      style={{ width: "100%" }}
-                    />
-                    <button
-                      onClick={handleCopyToClipboard}
-                      disabled={isCopied}
-                      style={{
-                        background: isCopied
-                          ? "rgba(21, 95,	200, 0.8)"
-                          : "#155fc8",
-                      }}
-                    >
-                      {isCopied ? "Copied!" : "Copy to Clipboard"}
-                    </button>
+                    <span>{findTicketById(ticket._id)}</span>
                   </div>
                 </div>
               </li>

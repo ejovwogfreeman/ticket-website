@@ -21,7 +21,7 @@ function App() {
           {/* <Route element={<ProtectedRoutes />}>
             <Route path="/edit/:id" element={<Edit />} />
           </Route> */}
-          <Route path="/ticket/id" element={<Ticket />} />
+          <Route path="/ticket/:id" element={<Ticket />} />
           <Route path="/Login" element={<Login />} />
         </Routes>
       </BrowserRouter>
