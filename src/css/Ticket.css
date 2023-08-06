@@ -419,7 +419,6 @@ section a {
 
 .ticketlist-container {
   padding: 50px 200px !important;
-  margin-bottom: 10px !important;
 }
 
 .ticketlist-container li {
@@ -431,6 +430,7 @@ section a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 10px !important;
 }
 
 .ticketlist-container li button {
