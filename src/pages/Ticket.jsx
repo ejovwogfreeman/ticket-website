@@ -111,7 +111,13 @@ const Ticket = () => {
               <button className="sell-btn">Sell</button>
             </div>
           </div>
-          <Modal show={show} handleShow={handleShow} />
+          <Modal
+            show={show}
+            handleShow={handleShow}
+            sec={ticket.sec}
+            row={ticket.row}
+            seat={ticket.seat}
+          />
         </div>
       ) : (
         <div className="loader">

@@ -4,7 +4,7 @@ import "../css/Ticket.css";
 import { IoMdCheckmark } from "react-icons/io";
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 
-const Modal = ({ show, handleShow }) => {
+const Modal = ({ show, handleShow, sec, row, seat }) => {
   let [click1, setClick1] = useState(true);
   let [click2, setClick2] = useState(true);
   let [count, setCount] = useState(0);
@@ -51,7 +51,9 @@ const Modal = ({ show, handleShow }) => {
                 </p>
               </div>
               <div className="floor">
-                <p>Sec Floor, Row GA</p>
+                <p>
+                  Sec&nbsp;{sec}, Row&nbsp;{row}
+                </p>
                 <span>
                   <iconify-icon icon="ion:ticket-sharp"></iconify-icon>&nbsp;
                   {count} {count > 1 ? "Tickets" : "Ticket"}
@@ -95,11 +97,11 @@ const Modal = ({ show, handleShow }) => {
                   {count} {count > 1 ? "Tickets Selected" : "Ticket Selected"}
                 </p>
                 <span className="span">
-                  Sec
+                  Sec&nbsp;{sec}
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  Row
+                  Row {row}
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  Seat
+                  Seat&nbsp;{seat}
                 </span>
                 <label htmlFor="">First Name</label>
                 <input type="text" placeholder="First Name" />
