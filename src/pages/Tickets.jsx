@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
-// import tickimg from "../images/ticket-img.jpg";
 
 const Tickets = () => {
   const [tickets, setTickets] = useState([]);
@@ -14,7 +13,7 @@ const Tickets = () => {
       .writeText(textToCopy)
       .then(() => {
         setIsCopied(true);
-        setTimeout(() => setIsCopied(false), 1500); // Display 'Copied' message for 1.5 seconds
+        setTimeout(() => setIsCopied(false), 1500);
       })
       .catch((error) => {
         console.error("Copy to clipboard failed:", error);
@@ -72,49 +71,54 @@ const Tickets = () => {
       <Navbar />
       <ul className="ticketlist-container">
         <h2>All Tickets</h2>
-        {tickets.map((ticket) => (
-          <li key={ticket._id}>
-            <img
-              src={`{/https://ticket-website.onrender.com/api/files/${ticket.image[0].link}`}
-              // src={tickimg}
-              alt=""
-            />
-            <div className="cont">
-              <div className="img-box">
-                <div className="spans">
-                  <span>{ticket.title}</span>
-                  <span> {ticket.artist}</span>
+        {tickets.length > 0 ? (
+          <>
+            {tickets.map((ticket) => (
+              <li key={ticket._id}>
+                <div className="cont">
+                  <div className="img-box">
+                    <div className="spans">
+                      <span>{ticket.title}</span>
+                      <span> {ticket.artist}</span>
+                    </div>
+                    <button
+                      onClick={() => handleDelete(ticket._id)}
+                      disabled={loading}
+                      style={{
+                        background: loading
+                          ? "rgba(21, 95,	200, 0.8)"
+                          : "#155fc8",
+                      }}
+                    >
+                      {loading ? "LOADING" : "DELETE"}
+                    </button>
+                  </div>
+                  <div className="clipboard">
+                    <input
+                      disabled
+                      type="text"
+                      value={textToCopy}
+                      onChange={(e) => setTextToCopy(e.target.value)}
+                    />
+                    <button
+                      onClick={handleCopyToClipboard}
+                      disabled={isCopied}
+                      style={{
+                        background: isCopied
+                          ? "rgba(21, 95,	200, 0.8)"
+                          : "#155fc8",
+                      }}
+                    >
+                      {isCopied ? "Copied!" : "Copy to Clipboard"}
+                    </button>
+                  </div>
                 </div>
-                <button
-                  onClick={() => handleDelete(ticket._id)}
-                  disabled={loading}
-                  style={{
-                    background: loading ? "rgba(21, 95,	200, 0.8)" : "#155fc8",
-                  }}
-                >
-                  {loading ? "LOADING" : "DELETE"}
-                </button>
-              </div>
-              <div className="clipboard">
-                <input
-                  disabled
-                  type="text"
-                  value={textToCopy}
-                  onChange={(e) => setTextToCopy(e.target.value)}
-                />
-                <button
-                  onClick={handleCopyToClipboard}
-                  disabled={isCopied}
-                  style={{
-                    background: isCopied ? "rgba(21, 95,	200, 0.8)" : "#155fc8",
-                  }}
-                >
-                  {isCopied ? "Copied!" : "Copy to Clipboard"}
-                </button>
-              </div>
-            </div>
-          </li>
-        ))}
+              </li>
+            ))}
+          </>
+        ) : (
+          "loading"
+        )}
       </ul>
     </div>
   );

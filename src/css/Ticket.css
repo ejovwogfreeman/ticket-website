@@ -427,9 +427,6 @@ section a {
   padding: 10px !important;
   list-style-type: none;
   margin-bottom: 10px !important;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-top: 10px !important;
 }
 
@@ -440,11 +437,6 @@ section a {
   color: white;
   cursor: pointer;
   padding: 7px 5px !important;
-}
-
-.ticketlist-container li .cont {
-  width: 85%;
-  margin-left: 10px !important;
 }
 
 .ticketlist-container li .img-box {
