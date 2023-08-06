@@ -77,7 +77,7 @@ const Create = () => {
 
     try {
       await axios.post(
-        "http://localhost:8000/api/ticket/create",
+        "https://ticket-website.onrender.com/api/ticket/create",
         formData,
         config
       );

@@ -43,7 +43,7 @@
 //       try {
 //         setLoading(true);
 //         const response = await axios.get(
-//           `http://localhost:8000/api/ticket/${id}`,
+//           `https://ticket-website.onrender.com/api/ticket/${id}`,
 //           config
 //         );
 //         setTicketData(response.data);
@@ -76,7 +76,7 @@
 
 //     try {
 //       await axios.put(
-//         `http://localhost:8000/api/ticket/update/${id}`,
+//         `https://ticket-website.onrender.com/api/ticket/update/${id}`,
 //         ticketData,
 //         config
 //       );

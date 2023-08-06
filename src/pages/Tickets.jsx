@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
-import tickimg from "../images/ticket-img.jpg";
+// import tickimg from "../images/ticket-img.jpg";
 
 const Tickets = () => {
   const [tickets, setTickets] = useState([]);
@@ -32,7 +32,7 @@ const Tickets = () => {
     setLoading(true);
     try {
       await axios.delete(
-        `http://localhost:8000/api/ticket/delete/${id}`,
+        `https://ticket-website.onrender.com/api/ticket/delete/${id}`,
         config
       );
       alert("TICKET DELETED SUCCESSFULLY");
@@ -54,9 +54,10 @@ const Tickets = () => {
           },
         };
         const response = await axios.get(
-          "http://localhost:8000/api/ticket/",
+          "https://ticket-website.onrender.com/api/ticket/",
           config
         );
+        console.log(response.data);
         setTickets(response.data);
       } catch (error) {
         console.error("Error fetching tickets:", error);
@@ -74,8 +75,8 @@ const Tickets = () => {
         {tickets.map((ticket) => (
           <li key={ticket._id}>
             <img
-              // src={`{http://localhost:8000/${ticket.image[0].link}`}
-              src={tickimg}
+              src={`{/https://ticket-website.onrender.com/api/files/${ticket.image[0].link}`}
+              // src={tickimg}
               alt=""
             />
             <div className="cont">

@@ -22,7 +22,7 @@ const Login = () => {
     }
 
     axios
-      .post("http://localhost:8000/api/auth/login", user, {
+      .post("https://ticket-website.onrender.com/api/auth/login", user, {
         headers: {
           "Content-Type": "application/json",
           Accept: "applicatioon/json",
