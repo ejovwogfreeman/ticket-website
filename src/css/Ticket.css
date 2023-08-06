@@ -489,6 +489,10 @@ section a {
   background-color: #155fc8;
 }
 
+.loader {
+  padding-top: 50px !important;
+}
+
 @media screen and (max-width: 960px) {
   .ticketlist-container {
     padding: 10px 5px !important;

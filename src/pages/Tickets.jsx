@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import loader from "../images/loading.gif";
 
 const Tickets = () => {
   const [tickets, setTickets] = useState([]);
@@ -96,7 +97,9 @@ const Tickets = () => {
             ))}
           </>
         ) : (
-          "loading"
+          <div className="loader">
+            <img src={loader} alt="" width="50px" />
+          </div>
         )}
       </ul>
     </div>

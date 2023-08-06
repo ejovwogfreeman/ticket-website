@@ -52,6 +52,10 @@ form img {
   form {
     width: 100%;
   }
+  form {
+    width: 350px;
+    margin-top: 50px !important;
+  }
 }
 @media screen and (max-width: 370px) {
   form {
