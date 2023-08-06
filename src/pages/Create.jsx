@@ -93,7 +93,7 @@ const Create = () => {
     <>
       <Navbar />
       <div className="form-container">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
           <img src={logo} alt="" />
           <label htmlFor="">TYPE</label>
           <input

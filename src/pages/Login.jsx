@@ -41,7 +41,7 @@ const Login = () => {
   };
   return (
     <div className="form-container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <img src={logo} alt="" />
         <label htmlFor="">USERNAME</label>
         <input
