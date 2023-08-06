@@ -27,6 +27,7 @@ let gfs;
 
 conn.once("open", () => {
   gfs = gridfs(conn.db, mongoose.mongo);
+  gfs.collection("photos"); // Make sure the collection name matches the bucketName used during upload
 });
 
 router.get("/file/:filename", async (req, res) => {
@@ -40,6 +41,10 @@ router.get("/file/:filename", async (req, res) => {
       return res.status(404).json({ error: "File not found" });
     }
 
+    // Set the appropriate content type based on the file's mime type
+    res.set("Content-Type", file.contentType);
+
+    // Create a read stream from GridFS and pipe it to the response
     const readStream = gfs.createReadStream({ filename: req.params.filename });
     readStream.pipe(res);
   } catch (error) {
