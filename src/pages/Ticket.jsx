@@ -52,53 +52,92 @@ const Ticket = () => {
           </nav>
           <div className="ticket-container">
             <div className="tickets" onScroll={handleScroll}>
-              {[1, 2].map((x, index) => {
-                return (
-                  <div className="ticket" key={index}>
-                    <div className="ticket-nav">{ticket.type}</div>
-                    <div className="ticket-nav2">
-                      <p>
-                        SEC <br />
-                        <strong>{ticket.sec}</strong>
-                      </p>
-                      <p>
-                        ROW
-                        <br />
-                        <strong>{ticket.row}</strong>
-                      </p>
-                      <p>
-                        SEAT <br />
-                        <strong>{ticket.seat}</strong>
-                      </p>
-                    </div>
-                    <div className="image-container">
-                      <div className="bg"></div>
-                      <img
-                        src={`https://ticket-website.onrender.com/api/files/${ticket.image[0].link}`}
-                        alt="ticket-pic"
-                      />
-                      <div className="text">
-                        <p className="tour">
-                          {ticket.artist} - {ticket.title}
-                        </p>
-                        <p className="date">
-                          {ticket.date} • {ticket.venue}
-                        </p>
-                      </div>
-                    </div>
-                    <section>
-                      <div>
-                        <img src={btn} alt="button-img" width="100%" />
-                      </div>
-                      <div>
-                        <Link to="">View Barcode</Link>
-                        <Link to="">Ticket Details</Link>
-                      </div>
-                    </section>
-                    <img src={ver} alt="" width="100%" className="verified" />
+              <div className="ticket">
+                <div className="ticket-nav">{ticket.type}</div>
+                <div className="ticket-nav2">
+                  <p>
+                    SEC <br />
+                    <strong>{ticket.sec}</strong>
+                  </p>
+                  <p>
+                    ROW
+                    <br />
+                    <strong>{ticket.row.split(",")[0]}</strong>
+                  </p>
+                  <p>
+                    SEAT <br />
+                    <strong>{ticket.seat.split(",")[0]}</strong>
+                  </p>
+                </div>
+                <div className="image-container">
+                  <div className="bg"></div>
+                  <img
+                    src={`https://ticket-website.onrender.com/api/files/${ticket.image[0].link}`}
+                    alt="ticket-pic"
+                  />
+                  <div className="text">
+                    <p className="tour">
+                      {ticket.artist} - {ticket.title}
+                    </p>
+                    <p className="date">
+                      {ticket.date} • {ticket.venue}
+                    </p>
                   </div>
-                );
-              })}
+                </div>
+                <section>
+                  <div>
+                    <img src={btn} alt="button-img" width="100%" />
+                  </div>
+                  <div>
+                    <Link to="">View Barcode</Link>
+                    <Link to="">Ticket Details</Link>
+                  </div>
+                </section>
+                <img src={ver} alt="" width="100%" className="verified" />
+              </div>
+              <div className="ticket">
+                <div className="ticket-nav">{ticket.type}</div>
+                <div className="ticket-nav2">
+                  <p>
+                    SEC <br />
+                    <strong>{ticket.sec}</strong>
+                  </p>
+                  <p>
+                    ROW
+                    <br />
+                    <strong>{ticket.row.split(",")[1]}</strong>
+                  </p>
+                  <p>
+                    SEAT <br />
+                    <strong>{ticket.seat.split(",")[1]}</strong>
+                  </p>
+                </div>
+                <div className="image-container">
+                  <div className="bg"></div>
+                  <img
+                    src={`https://ticket-website.onrender.com/api/files/${ticket.image[0].link}`}
+                    alt="ticket-pic"
+                  />
+                  <div className="text">
+                    <p className="tour">
+                      {ticket.artist} - {ticket.title}
+                    </p>
+                    <p className="date">
+                      {ticket.date} • {ticket.venue}
+                    </p>
+                  </div>
+                </div>
+                <section>
+                  <div>
+                    <img src={btn} alt="button-img" width="100%" />
+                  </div>
+                  <div>
+                    <Link to="">View Barcode</Link>
+                    <Link to="">Ticket Details</Link>
+                  </div>
+                </section>
+                <img src={ver} alt="" width="100%" className="verified" />
+              </div>
             </div>
             <div className="dots-container">
               <div className={activeDot === 1 ? "active-dot" : "dot"}></div>
