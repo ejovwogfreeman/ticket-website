@@ -47,10 +47,11 @@ nav .icon {
 
 .ticket-nav {
   background-color: #155fc8;
-  padding: 10px !important;
+  padding: 15px 10px !important;
   color: white;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  font-size: 13px;
 }
 
 .ticket-nav2 {
