@@ -56,7 +56,7 @@ const Tickets = () => {
   const findTicketById = (id) => {
     for (const ticket of tickets) {
       if (ticket._id === id) {
-        return "https://ticketwebsite.netlify.app/ticket/" + ticket._id;
+        return "https://ticketwebsite.netlify.app/" + ticket._id;
       }
     }
     return null;
