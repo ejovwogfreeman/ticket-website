@@ -31,7 +31,7 @@ const Login = () => {
       .then((res) => {
         alert("LOGIN SUCCESSFUL");
         setLoading(false);
-        navigate("/");
+        navigate("/tickets");
         localStorage.setItem("user", JSON.stringify(res.data));
       })
       .catch((err) => {
