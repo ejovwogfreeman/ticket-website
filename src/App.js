@@ -12,16 +12,14 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route element={<ProtectedRoutes />}>
-            <Route path="/" element={<Tickets />} />
-          </Route>
+          <Route path="/:id" element={<Ticket />} />
           <Route element={<ProtectedRoutes />}>
             <Route path="/create" element={<Create />} />
           </Route>
           {/* <Route element={<ProtectedRoutes />}>
             <Route path="/edit/:id" element={<Edit />} />
           </Route> */}
-          <Route path="/ticket/:id" element={<Ticket />} />
+          <Route path="/tickets" element={<Ticket />} />
           <Route path="/Login" element={<Login />} />
         </Routes>
       </BrowserRouter>
