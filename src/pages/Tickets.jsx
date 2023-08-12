@@ -97,19 +97,17 @@ const Tickets = () => {
             ))}
           </>
         ) : (
-          <div className="loader">
-            <img
-              src={loader}
-              alt=""
-              style={{
-                position: "fixed",
-                top: "0px",
-                left: "0px",
-                width: "100%",
-                height: "100vh",
-              }}
-            />
-          </div>
+          <img
+            src={loader}
+            alt=""
+            style={{
+              position: "fixed",
+              top: "0px",
+              left: "0px",
+              width: "100%",
+              height: "100vh",
+            }}
+          />
         )}
       </ul>
     </div>
