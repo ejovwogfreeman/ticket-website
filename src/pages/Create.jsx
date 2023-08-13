@@ -4,6 +4,7 @@ import logo from "../images/logo.png";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Create = () => {
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ const Create = () => {
       !image
     ) {
       setLoading(false);
-      return alert("PLEASE FILL ALL FIELDS");
+      return toast.error("PLEASE FILL ALL FIELDS");
     }
     const formData = new FormData();
     formData.append("type", ticketData.type);
@@ -81,7 +82,7 @@ const Create = () => {
         formData,
         config
       );
-      alert("TICKET CREATED SUCCESSFULLY");
+      toast.success("TICKET CREATED SUCCESSFULLY");
       setLoading(false);
       navigate("/");
     } catch (error) {

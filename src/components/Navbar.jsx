@@ -6,11 +6,6 @@ import ticketlogo from "../images/ticketlogo.png";
 import SideNav from "./SideNav";
 
 const Navbar = () => {
-  // const logout = () => {
-  //   localStorage.removeItem("user");
-  //   window.location.reload();
-  // };
-
   const [show, setShow] = useState(false);
 
   const handleShow = () => {
@@ -19,11 +14,6 @@ const Navbar = () => {
 
   return (
     <nav className="navBar">
-      {/* <Link to="/">TICKETS</Link>
-      <Link to="/create">CREATE</Link>
-      <span onClick={logout} style={{ cursor: "pointer" }}>
-        LOGOUT
-      </span> */}
       <div
         className={show ? "bg-dark" : "bg-dark-hide"}
         onClick={handleShow}

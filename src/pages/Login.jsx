@@ -3,6 +3,7 @@ import "../css/Form.css";
 import logo from "../images/logo.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -29,13 +30,13 @@ const Login = () => {
         },
       })
       .then((res) => {
-        alert("LOGIN SUCCESSFUL");
+        toast.success("LOGIN SUCCESSFUL");
         setLoading(false);
         navigate("/tickets");
         localStorage.setItem("user", JSON.stringify(res.data));
       })
       .catch((err) => {
-        alert("INCORRECT CREDENTIALS");
+        toast.error("INCORRECT CREDENTIALS");
         setLoading(false);
       });
   };

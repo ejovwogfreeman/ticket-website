@@ -5,8 +5,17 @@ import { RiHeartsFill } from "react-icons/ri";
 import { GiTicket } from "react-icons/gi";
 import { FaMoneyBillWave } from "react-icons/fa";
 import { BsPersonCircle } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { IoIosCreate } from "react-icons/io";
+import { BiLogOut } from "react-icons/bi";
 
 const SideNav = ({ show }) => {
+  const logout = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
+  let user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <nav className={show ? "sideNavShow" : "sideNav"}>
       <div className="nav-items">
@@ -45,6 +54,26 @@ const SideNav = ({ show }) => {
             <BsPersonCircle />
             <span>My Account</span>
           </li>
+          <>
+            {user ? (
+              <div className="auth-links">
+                <li>
+                  <GiTicket />
+                  <Link to="/">Tickets</Link>
+                </li>
+                <li>
+                  <IoIosCreate />
+                  <Link to="/create">Create</Link>
+                </li>
+                <li span onClick={logout} style={{ cursor: "pointer" }}>
+                  <BiLogOut />
+                  <span> Logout</span>
+                </li>
+              </div>
+            ) : (
+              ""
+            )}
+          </>
         </ul>
       </div>
     </nav>

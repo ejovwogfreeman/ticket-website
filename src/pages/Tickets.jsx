@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import loader from "../images/loading.gif";
+import { toast } from "react-toastify";
 
 const Tickets = () => {
   const [tickets, setTickets] = useState([]);
@@ -21,7 +22,7 @@ const Tickets = () => {
         `https://ticket-website.onrender.com/api/ticket/delete/${id}`,
         config
       );
-      alert("TICKET DELETED SUCCESSFULLY");
+      toast.success("TICKET DELETED SUCCESSFULLY");
       setLoading(false);
       window.location.reload();
     } catch (error) {
