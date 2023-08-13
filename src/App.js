@@ -5,6 +5,7 @@ import Tickets from "./pages/Tickets";
 // import Edit from "./pages/Edit";
 import Create from "./pages/Create";
 import Login from "./pages/Login";
+import Home from "./pages/Home";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/:id" element={<Ticket />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/ticket/:id" element={<Ticket />} />
           <Route element={<ProtectedRoutes />}>
             <Route path="/create" element={<Create />} />
           </Route>
