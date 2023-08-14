@@ -79,11 +79,11 @@ const Ticket = () => {
                     src={`https://ticket-website.onrender.com/api/files/${ticket.image[0].link}`}
                     alt="ticket-pic"
                   />
-                  <div className="text" id="ticket-special">
-                    <p className="tour">
+                  <div className="text">
+                    <p className="tour text-center">
                       {ticket.artist} - {ticket.title}
                     </p>
-                    <p className="date">
+                    <p className="date text-center">
                       {ticket.date} • {ticket.venue}
                     </p>
                   </div>
