@@ -6,6 +6,7 @@ import {
   MdOutlineLocationOn,
   MdOutlineDateRange,
 } from "react-icons/md";
+import bgimage from "../images/ticket-img.jpg";
 
 const Home = () => {
   return (
@@ -31,6 +32,22 @@ const Home = () => {
             />
           </div>
         </form>
+      </div>
+      <img src={bgimage} width="100%" />
+      <div className="rush">
+        <h3>Big Time Rush</h3>
+        <p>Dont miss your chance to see them at the can't get enough tour</p>
+      </div>
+      <div className="categories">
+        <h3>Browse Categories</h3>
+        <div className="cat">
+          <img src={bgimage} alt="" />
+          <img src={bgimage} alt="" />
+          <img src={bgimage} alt="" />
+          <img src={bgimage} alt="" />
+          <img src={bgimage} alt="" />
+          <img src={bgimage} alt="" />
+        </div>
       </div>
     </div>
   );
