@@ -120,7 +120,7 @@ const Ticket = () => {
                     src={`https://ticket-website.onrender.com/api/files/${ticket.image[0].link}`}
                     alt="ticket-pic"
                   />
-                  <div className="text" style={{ textAlign: "center" }}>
+                  <div className="text">
                     <p className="tour">
                       {ticket.artist} - {ticket.title}
                     </p>

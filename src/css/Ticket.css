@@ -93,6 +93,7 @@ nav .icon {
   color: white;
   top: 150px;
   z-index: 1000;
+  text-align: center;
 }
 
 .image-container .text .tour {
