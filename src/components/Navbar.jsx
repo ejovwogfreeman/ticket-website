@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import ticketlogo from "../images/ticketlogo.png";
 import SideNav from "./SideNav";
 
-const Navbar = () => {
+const Navbar = ({ id }) => {
   const [show, setShow] = useState(false);
 
   const handleShow = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
         className={show ? "bg-dark" : "bg-dark-hide"}
         onClick={handleShow}
       ></div>
-      <SideNav show={show} />
+      <SideNav show={show} id={id} />
       <div>
         <GiHamburgerMenu
           style={{ fontSize: "30px", cursor: "pointer" }}

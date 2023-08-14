@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { IoIosCreate } from "react-icons/io";
 import { BiLogOut } from "react-icons/bi";
 
-const SideNav = ({ show }) => {
+const SideNav = ({ show, id }) => {
   const logout = () => {
     localStorage.removeItem("user");
     window.location.reload();
@@ -42,7 +42,9 @@ const SideNav = ({ show }) => {
           </li>
           <li>
             <GiTicket />
-            <span>My Events</span>
+            <Link to={`https://ticketwebsite.netlify.app/ticket/${id}`}>
+              My Events
+            </Link>
           </li>
           <li>
             <FaMoneyBillWave />

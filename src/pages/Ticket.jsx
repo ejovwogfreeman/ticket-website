@@ -8,6 +8,7 @@ import Modal from "../components/Modal";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import loader from "../images/loading.gif";
+import Navbar from "../components/Navbar";
 
 const Ticket = () => {
   const params = useParams();
@@ -46,6 +47,7 @@ const Ticket = () => {
     <div>
       {ticket ? (
         <div>
+          <Navbar id={ticket.id} />
           <nav>
             <Link to="/" className="icon">
               <MdClose />
