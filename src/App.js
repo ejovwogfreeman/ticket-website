@@ -6,10 +6,12 @@ import Create from "./pages/Create";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import Toastify from "./components/Toastify";
 
 function App() {
   return (
     <div className="App">
+      <Toastify />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

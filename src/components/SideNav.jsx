@@ -20,10 +20,10 @@ const SideNav = ({ show }) => {
     <nav className={show ? "sideNavShow" : "sideNav"}>
       <div className="nav-items">
         <div className="nav-top">
-          <spann className="bottom">
+          <span className="bottom">
             <img src={ticket} alt="" /> <br />
             <span>Sign In</span>
-          </spann>
+          </span>
         </div>
         <ul className="links">
           <li>
@@ -59,13 +59,13 @@ const SideNav = ({ show }) => {
               <div className="auth-links">
                 <li>
                   <GiTicket />
-                  <Link to="/">Tickets</Link>
+                  <Link to="/tickets">Tickets</Link>
                 </li>
                 <li>
                   <IoIosCreate />
                   <Link to="/create">Create</Link>
                 </li>
-                <li span onClick={logout} style={{ cursor: "pointer" }}>
+                <li onClick={logout} style={{ cursor: "pointer" }}>
                   <BiLogOut />
                   <span> Logout</span>
                 </li>

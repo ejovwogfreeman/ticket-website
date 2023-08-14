@@ -19,7 +19,8 @@ const Login = () => {
     e.preventDefault();
 
     if (!username || !password) {
-      return alert("PLEASE FILL ALL FIELDS");
+      setLoading(false);
+      return toast.error("PLEASE FILL ALL FIELDS");
     }
 
     axios

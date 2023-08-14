@@ -47,7 +47,9 @@ const Ticket = () => {
       {ticket ? (
         <div>
           <nav>
-            <MdClose className="icon" />
+            <Link to="/">
+              <MdClose className="icon" />
+            </Link>
             <p>My Tickets</p>
           </nav>
           <div className="ticket-container">

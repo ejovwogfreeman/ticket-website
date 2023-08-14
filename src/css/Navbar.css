@@ -97,6 +97,11 @@
   margin-bottom: 5px !important;
 }
 
+.auth-links li:first-child {
+  border-bottom: 0px;
+  margin-bottom: 0px !important;
+}
+
 .links a {
   color: #434343;
   text-decoration: none;

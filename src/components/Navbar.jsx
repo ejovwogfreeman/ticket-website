@@ -20,7 +20,10 @@ const Navbar = () => {
       ></div>
       <SideNav show={show} />
       <div>
-        <GiHamburgerMenu style={{ fontSize: "30px" }} onClick={handleShow} />
+        <GiHamburgerMenu
+          style={{ fontSize: "30px", cursor: "pointer" }}
+          onClick={handleShow}
+        />
       </div>
       <div>
         <img src={ticketlogo} alt="ticket-logo" width="150px" />
