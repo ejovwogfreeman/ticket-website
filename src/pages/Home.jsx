@@ -33,7 +33,7 @@ const Home = () => {
           </div>
         </form>
       </div>
-      <img src={bgimage} width="100%" />
+      <img src={bgimage} alt="bgpic" width="100%" />
       <div className="rush">
         <h3>Big Time Rush</h3>
         <p>Dont miss your chance to see them at the can't get enough tour</p>
