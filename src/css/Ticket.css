@@ -527,3 +527,7 @@ section a {
     height: 50px;
   }
 }
+
+#ticket-special {
+  text-align: center;
+}
