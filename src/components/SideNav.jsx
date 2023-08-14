@@ -22,7 +22,9 @@ const SideNav = ({ show }) => {
         <div className="nav-top">
           <span className="bottom">
             <img src={ticket} alt="" /> <br />
-            <span>Sign In</span>
+            <Link to="/signin" style={{ textDecoration: "none" }}>
+              Sign In
+            </Link>
           </span>
         </div>
         <ul className="links">

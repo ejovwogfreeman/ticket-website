@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "../css/Form.css";
-import logo from "../images/logo.png";
+import "../css/Login.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Login = () => {
@@ -43,27 +42,43 @@ const Login = () => {
   };
   return (
     <div className="form-container">
-      <form onSubmit={handleSubmit} className="form">
-        <img src={logo} alt="" />
-        <label htmlFor="">USERNAME</label>
+      <form onSubmit={handleSubmit} className="login-form">
+        <h3>Sign In</h3>
+        <p>
+          New to Ticketmaster? <Link href="">Sign Up</Link>
+        </p>
+        <label htmlFor="">Email Address</label>
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="Enter your username"
         />
-        <label htmlFor="">PASSWORD</label>
+        <label htmlFor="">Password</label>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter your password"
         />
+        <div className="check-forget">
+          <span className="check">
+            <input type="checkbox" name="" id="" />
+            <span>Remember Me</span>
+          </span>
+          <Link to="">Forgot Password?</Link>
+        </div>
+        <div>
+          <p>
+            By continuing past this page, you agree to the
+            <Link to="">Terms of Use</Link> and understand and unserstand that
+            information will be used as described in our{" "}
+            <Link>Privacy Policy</Link>
+          </p>
+        </div>
         <button
           disabled={loading}
           style={{ background: loading ? "rgba(21, 95,	200, 0.8)" : "#155fc8" }}
         >
-          {loading ? "LOADING" : "LOGIN"}
+          {loading ? "LOADING" : "Sign In"}
         </button>
       </form>
     </div>
