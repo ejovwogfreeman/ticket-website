@@ -80,10 +80,10 @@ const Ticket = () => {
                     alt="ticket-pic"
                   />
                   <div className="text">
-                    <p className="tour text-center bg-primary">
+                    <p className="tour">
                       {ticket.artist} - {ticket.title}
                     </p>
-                    <p className="date text-center bg-primary">
+                    <p className="date">
                       {ticket.date} • {ticket.venue}
                     </p>
                   </div>
