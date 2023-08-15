@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ticket from "../images/ticket.png";
 import { MdOutlineLocationOn, MdSearch, MdNotifications } from "react-icons/md";
 import { RiHeartsFill } from "react-icons/ri";
@@ -8,6 +8,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { IoIosCreate } from "react-icons/io";
 import { BiLogOut } from "react-icons/bi";
+import axios from "axios";
 
 const SideNav = ({ show }) => {
   const logout = () => {
@@ -15,6 +16,32 @@ const SideNav = ({ show }) => {
     window.location.reload();
   };
   let user = JSON.parse(localStorage.getItem("user"));
+
+  const [tick, setTick] = useState({});
+
+  console.log(tick);
+
+  useEffect(() => {
+    const fetchTickets = async () => {
+      try {
+        const authToken = JSON.parse(localStorage.getItem("user")).token;
+        const config = {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        };
+        const response = await axios.get(
+          "https://ticket-website.onrender.com/api/ticket/",
+          config
+        );
+        setTick(response.data[response.data.length - 1]);
+      } catch (error) {
+        console.error("Error fetching tickets:", error);
+      }
+    };
+
+    fetchTickets();
+  }, []);
 
   return (
     <nav className={show ? "sideNavShow" : "sideNav"}>
@@ -42,7 +69,7 @@ const SideNav = ({ show }) => {
           </li>
           <li>
             <GiTicket />
-            <Link>My Events</Link>
+            <Link to={`/ticket/${tick._id}`}>My Events</Link>
           </li>
           <li>
             <FaMoneyBillWave />

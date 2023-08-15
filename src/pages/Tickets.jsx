@@ -70,7 +70,7 @@ const Tickets = () => {
         <h2>All Tickets</h2>
         {tickets.length > 0 ? (
           <>
-            {tickets.map((ticket) => (
+            {[...tickets].reverse().map((ticket) => (
               <li key={ticket._id}>
                 <div className="cont">
                   <div className="img-box">

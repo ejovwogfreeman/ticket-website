@@ -61,7 +61,7 @@ const Modal = ({ show, handleShow, sec, row, seat }) => {
               </div>
               <div className="seat">
                 <div>
-                  <p>SEAT-</p>
+                  <p>SEAT {seat.split(",")[0]}</p>
                   <span
                     onClick={handleClick1}
                     className={`${click1 ? "unclicked" : "clicked"}`}
@@ -70,7 +70,7 @@ const Modal = ({ show, handleShow, sec, row, seat }) => {
                   </span>
                 </div>
                 <div>
-                  <p>SEAT-</p>
+                  <p>SEAT {seat.split(",")[1]}</p>
                   <span
                     onClick={handleClick2}
                     className={`${click2 ? "unclicked" : "clicked"}`}

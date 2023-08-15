@@ -7,6 +7,12 @@ import {
   MdOutlineDateRange,
 } from "react-icons/md";
 import bgimage from "../images/ticket-img.jpg";
+import img1 from "../images/img1.jpg";
+import img2 from "../images/img2.jpg";
+import img3 from "../images/img3.jpg";
+import img4 from "../images/img4.jpg";
+import img5 from "../images/img5.jpg";
+import img6 from "../images/img6.jpg";
 
 const Home = () => {
   return (
@@ -41,12 +47,12 @@ const Home = () => {
       <div className="categories">
         <h3>Browse Categories</h3>
         <div className="cat">
-          <img src={bgimage} alt="" />
-          <img src={bgimage} alt="" />
-          <img src={bgimage} alt="" />
-          <img src={bgimage} alt="" />
-          <img src={bgimage} alt="" />
-          <img src={bgimage} alt="" />
+          <img src={img1} alt="" />
+          <img src={img2} alt="" />
+          <img src={img3} alt="" />
+          <img src={img4} alt="" />
+          <img src={img5} alt="" />
+          <img src={img6} alt="" />
         </div>
       </div>
     </div>
