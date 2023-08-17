@@ -57,7 +57,7 @@ const Tickets = () => {
   const findTicketById = (id) => {
     for (const ticket of tickets) {
       if (ticket._id === id) {
-        return "https://ticket-web.netlify.app/" + ticket._id;
+        return "http://localhost:3000/ticket/" + ticket._id;
       }
     }
     return null;
