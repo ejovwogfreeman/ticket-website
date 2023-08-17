@@ -55,7 +55,7 @@ const SideNav = ({ show }) => {
           </span>
         </div>
         <ul className="links">
-          <li>
+          {/* <li>
             <MdOutlineLocationOn />
             <span>Unknown</span>
           </li>
@@ -82,7 +82,7 @@ const SideNav = ({ show }) => {
           <li>
             <BsPersonCircle />
             <span>My Account</span>
-          </li>
+          </li> */}
           <>
             {user ? (
               <div className="auth-links">
@@ -90,10 +90,10 @@ const SideNav = ({ show }) => {
                   <GiTicket />
                   <Link to="/tickets">Tickets</Link>
                 </li>
-                <li>
+                {/* <li>
                   <IoIosCreate />
                   <Link to="/create">Create</Link>
-                </li>
+                </li> */}
                 <li onClick={logout} style={{ cursor: "pointer" }}>
                   <BiLogOut />
                   <span> Logout</span>
