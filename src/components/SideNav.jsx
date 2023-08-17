@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ticket from "../images/ticket.png";
-import { MdOutlineLocationOn, MdSearch, MdNotifications } from "react-icons/md";
-import { RiHeartsFill } from "react-icons/ri";
+// import { MdOutlineLocationOn, MdSearch, MdNotifications } from "react-icons/md";
+// import { RiHeartsFill } from "react-icons/ri";
 import { GiTicket } from "react-icons/gi";
-import { FaMoneyBillWave } from "react-icons/fa";
-import { BsPersonCircle } from "react-icons/bs";
+// import { FaMoneyBillWave } from "react-icons/fa";
+// import { BsPersonCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { IoIosCreate } from "react-icons/io";
+// import { IoIosCreate } from "react-icons/io";
 import { BiLogOut } from "react-icons/bi";
 import axios from "axios";
 

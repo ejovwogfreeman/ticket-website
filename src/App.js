@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Ticket from "./pages/Ticket";
 import Tickets from "./pages/Tickets";
-import Create from "./pages/Create";
+// import Create from "./pages/Create";
 import Login from "./pages/Login";
 // import Home from "./pages/Home";
 import ProtectedRoutes from "./components/ProtectedRoutes";
