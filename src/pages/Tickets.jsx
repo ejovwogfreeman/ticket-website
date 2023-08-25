@@ -34,15 +34,8 @@ const Tickets = () => {
   useEffect(() => {
     const fetchTickets = async () => {
       try {
-        const authToken = JSON.parse(localStorage.getItem("user")).token;
-        const config = {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        };
         const response = await axios.get(
-          "https://ticket-website.onrender.com/api/ticket/",
-          config
+          "https://ticket-website.onrender.com/api/ticket/"
         );
         console.log(response.data);
         setTickets(response.data);
