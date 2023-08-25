@@ -25,8 +25,7 @@ const SideNav = ({ show }) => {
     const fetchTickets = async () => {
       try {
         const response = await axios.get(
-          "https://ticket-website.onrender.com/api/ticket/",
-          config
+          "https://ticket-website.onrender.com/api/ticket/"
         );
         setTick(response.data[response.data.length - 1]);
       } catch (error) {
