@@ -11,7 +11,7 @@ const { upload } = require("../middlewares/fileMiddleware");
 
 const router = express.Router();
 
-router.get("/", protect, getAllTickets);
+router.get("/", getAllTickets);
 router.get("/:id", getSingleTicket);
 router.post("/create", protect, upload.array("files"), createTicket);
 router.put("/update/:id", protect, updateTicket);
