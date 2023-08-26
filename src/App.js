@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Ticket from "./pages/Ticket";
 import Tickets from "./pages/Tickets";
 // import Create from "./pages/Create";
@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Toastify />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ticket/:id" element={<Ticket />} />
@@ -24,7 +24,7 @@ function App() {
           </Route>
           <Route path="/signin" element={<Login />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
