@@ -3,6 +3,7 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import loader from "../images/loading.gif";
 import { toast } from "react-toastify";
+// import { Link } from "react-router-dom";
 
 const Tickets = () => {
   const [tickets, setTickets] = useState([]);
@@ -57,7 +58,7 @@ const Tickets = () => {
   const findTicketById = (id) => {
     for (const ticket of tickets) {
       if (ticket._id === id) {
-        return "https://ticket-web.netlify.app/ticket/" + ticket._id;
+        return "https://ticket-web.netlify.app/#/ticket/" + ticket._id;
       }
     }
     return null;
