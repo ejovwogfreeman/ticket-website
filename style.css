@@ -1,0 +1,282 @@
+* {
+  margin: 0px !important;
+  padding: 0px !important;
+  box-sizing: border-box;
+}
+
+nav {
+  background-color: #1f262d;
+  color: #fff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  font-weight: medium;
+  width: 100%;
+}
+
+nav .icon {
+  position: absolute;
+  left: 20px;
+}
+
+.ticket-container {
+  width: 350px;
+  margin: 50px auto !important;
+}
+
+.ticket-container .tickets {
+  display: flex;
+  align-items: center;
+  overflow-x: ellipsis;
+  overflow-x: scroll;
+  padding: 20px 0px !important;
+  margin: 20px 0px !important;
+}
+
+.ticket-container .ticket {
+  min-width: 300px;
+  margin: 0px 20px 0px 0px !important;
+  background-color: white;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.ticket-nav {
+  background-color: #155fc8;
+  padding: 10px !important;
+  color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.ticket-nav2 {
+  background-color: #026cdf;
+  color: white;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  padding: 10px 25px !important;
+}
+
+.image-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),
+    url("images/ticket-img.jpg");
+  height: 168px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-repeat: cover;
+  background-size: 100%;
+  position: relative;
+}
+
+.image-container div {
+  position: absolute;
+  width: 100%;
+  color: white;
+  bottom: 10px;
+}
+
+.image-container div .tour {
+  font-size: 19px;
+}
+
+.image-container div .date {
+  font-size: 15px;
+}
+
+.ticket-container .verified {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+section {
+  background-color: white;
+  padding: 50px 30px 0px !important;
+}
+
+section div {
+  margin: 20px 0px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section a {
+  text-decoration: none;
+  color: #026cdf;
+}
+
+.btn-containetr {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.btn-containetr button {
+  flex: 1;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.transfer-btn {
+  background-color: #026cdf;
+  color: white;
+  padding: 5px 10px !important;
+  margin-right: 10px !important;
+}
+
+.sell-btn {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  padding: 5px 10px !important;
+}
+
+#bg {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: 0.5s ease-in-out;
+}
+
+.modal-container {
+  height: 480px;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  bottom: -500px;
+  z-index: 100;
+  transition: 0.5s ease-in-out;
+}
+
+.modal-container .modal-container {
+  position: relative;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.modal-container h6 {
+  text-align: center;
+  margin: 10px !important;
+}
+
+.modal-container .line {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal-container .imark {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 20px 10px !important;
+  padding: 15px !important;
+  display: flex;
+}
+
+.modal-container .imark span {
+  font-size: 50px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border-radius: 50%;
+  font-weight: 600;
+  margin: 10px !important;
+}
+
+.modal-container .floor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 10px !important;
+}
+
+.modal-container .floor span {
+  display: flex;
+  align-items: center;
+}
+.modal-container .floor span a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-container .seat {
+  display: flex;
+  align-items: center;
+  margin: 20px 10px !important;
+}
+
+.modal-container .seat div {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+.modal-container .seat div:last-of-type {
+  margin-left: 20px !important;
+}
+
+.modal-container .seat div p {
+  background-color: #026cdf;
+  color: white;
+  padding: 8px !important;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.seat span {
+  margin: 15px auto !important;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+@media screen and (max-width: 900px) {
+  .modal-container .imark span {
+    font-size: 40px;
+    min-width: 70px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .modal-container .imark span {
+    font-size: 30px;
+    min-width: 50px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .ticket-container {
+    width: 330px;
+  }
+  .modal-container .imark span {
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+  }
+}
