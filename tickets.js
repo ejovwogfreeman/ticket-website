@@ -6,7 +6,7 @@ const fetchTicket = async () => {
 
   data.forEach((x) => {
     html += `
-      <li>http://127.0.0.1:5500/ticket.html?id=64ddd674d88064f68552d0c4</li>
+      <li>https://ticket-web.netlify.app/ticket.html?id=64ddd674d88064f68552d0c4</li>
     `;
   });
 
