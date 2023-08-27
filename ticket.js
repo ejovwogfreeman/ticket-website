@@ -1,5 +1,6 @@
 let openBtn = document.getElementById("modal-button");
 let modal = document.getElementById("modal-container");
+let modContainer = document.querySelector(".mod-container");
 let closeBtn = document.getElementById("close");
 let bg = document.getElementById("bg");
 
@@ -27,7 +28,6 @@ let row2 = document.getElementById("row2");
 let seat2 = document.getElementById("seat2");
 let img2 = document.getElementById("img2");
 
-console.log(ticketTitle);
 const fetchTicket = async () => {
   const res = await fetch(
     `https://ticket-website.onrender.com/api/ticket/${ticketId}`
@@ -50,6 +50,43 @@ const fetchTicket = async () => {
     "https://ticket-website.onrender.com/api/files/" + data.image[0].link;
 };
 
-let tickets = document.getElementById("tickets");
-
 fetchTicket();
+
+let tickets = document.querySelector(".tickets");
+let dot = document.querySelectorAll(".dot");
+
+tickets.addEventListener("scroll", () => {
+  if (tickets.scrollLeft > 200) {
+    for (let i = 0; i < dot.length; i++) {
+      if (!dot[1].classList.contains("active")) {
+        dot[0].classList.remove("active");
+        dot[1].classList.add("active");
+      }
+    }
+  } else {
+    for (let i = 0; i < dot.length; i++) {
+      dot[0].classList.add("active");
+      dot[1].classList.remove("active");
+    }
+  }
+});
+
+let modalForm = document.querySelector(".modal-form");
+modalForm.style.display = "none";
+
+let transferBtn = document.getElementById("transferBtn");
+let backBtn = document.querySelector(".backBtn");
+
+transferBtn.addEventListener("click", () => {
+  modContainer.style.display = "none";
+  modalForm.style.display = "block";
+});
+
+backBtn.addEventListener("click", () => {
+  modContainer.style.display = "block";
+  modalForm.style.display = "none";
+});
+
+modalForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+});

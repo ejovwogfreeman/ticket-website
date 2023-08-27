@@ -108,6 +108,10 @@
           />
         </div>
       </div>
+      <div class="dots-container">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+      </div>
       <div class="btn-containetr">
         <button class="transfer-btn" id="modal-button">Transfer</button>
         <button class="sell-btn">Sell</button>
@@ -115,6 +119,11 @@
     </div>
     <div id="bg"></div>
     <div class="modal-container" id="modal-container">
+      <iconify-icon
+        icon="fluent-emoji-high-contrast:cross-mark"
+        class="close-icon"
+        id="close"
+      ></iconify-icon>
       <div class="mod-container">
         <h6>SELECT TICKETS TO TRANSFER</h6>
         <div class="line"></div>
@@ -145,17 +154,40 @@
         <div class="line"></div>
         <div class="floor top">
           <p>0 Selected</p>
-          <span>
-            <a href=""
-              >TRANSFER T0
-              <iconify-icon icon="dashicons:arrow-right-alt2"></iconify-icon></a
-          ></span>
+          <span id="transferBtn" class="btnStyle">
+            TRANSFER T0
+            <iconify-icon icon="dashicons:arrow-right-alt2"></iconify-icon>
+          </span>
         </div>
-        <iconify-icon
-          icon="fluent-emoji-high-contrast:cross-mark"
-          class="close-icon"
-          id="close"
-        ></iconify-icon>
+      </div>
+      <div class="modal-form">
+        <h6 class="text-center">TRANSFER TICKETS</h6>
+        <div class="line"></div>
+        <form action="" class="modal-form">
+          <p></p>
+          <span class="span">
+            Sec&nbsp;{sec}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Row
+            {row} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Seat&nbsp;{seat}
+          </span>
+          <label for="">First Name</label>
+          <input type="text" placeholder="First Name" />
+          <label for="">Last Name</label>
+          <input type="text" placeholder="Last Name" />
+          <label for="">Email or Mobile Number</label>
+          <input type="text" placeholder="Email or Mobile Number" />
+          <label for="">Note</label>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <div class="line"></div>
+          <div class="bottom top">
+            <span class="transfer-to">
+              <MdArrowBackIos />
+              <span class="backBtn btnStyle">BACK</span>
+            </span>
+            <button class="transfer-form-btn">Transfer</button>
+          </div>
+        </form>
       </div>
     </div>
   </body>
