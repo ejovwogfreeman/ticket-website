@@ -121,6 +121,8 @@ backBtn.addEventListener("click", () => {
 
 modalForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  modal.style.bottom = "-500px";
+  bg.style.display = "none";
 });
 
 let arr = [];
