@@ -28,7 +28,7 @@
     <div class="ticket-container">
       <div class="tickets">
         <div class="ticket">
-          <div class="ticket-nav" id="ticketTitle"></div>
+          <div class="ticket-nav" id="ticketType"></div>
           <div class="ticket-nav2">
             <p>
               SEC <br />
@@ -47,8 +47,14 @@
             <img src="" alt="" class="img" id="img" />
             <div class="dark-bg"></div>
             <div>
-              <p class="tour" id="tour">Harry Styles - Love on Tour</p>
-              <p class="date" id="date">Fri Jul 29, 9:00pm • WiZink Center</p>
+              <p class="tour">
+                <span id="artiste"></span> -
+                <span id="title"></span>
+              </p>
+              <p class="date">
+                <span id="date"></span> •
+                <span id="venue"></span>
+              </p>
             </div>
           </div>
           <section>
@@ -68,7 +74,7 @@
           />
         </div>
         <div class="ticket">
-          <div class="ticket-nav" id="ticketTitle2">Standard Ticket</div>
+          <div class="ticket-nav" id="ticketType2">Standard Ticket</div>
           <div class="ticket-nav2">
             <p>
               SEC <br />
@@ -87,8 +93,14 @@
             <img src="" alt="" class="img" id="img2" />
             <div class="dark-bg"></div>
             <div>
-              <p class="tour" id="tour2">Harry Styles - Love on Tour</p>
-              <p class="date" id="date2">Fri Jul 29, 9:00pm • WiZink Center</p>
+              <p class="tour">
+                <span id="artiste2"></span> -
+                <span id="title2"></span>
+              </p>
+              <p class="date">
+                <span id="date2"></span> •
+                <span id="venue2"></span>
+              </p>
             </div>
           </div>
           <section>
@@ -135,25 +147,30 @@
           </p>
         </div>
         <div class="floor">
-          <p>Sec Floor, Row GA</p>
+          <p style="display: flex">
+            Sec Floor <span id="secnum2"></span>, Row GA
+            <span id="rownum2"></span>
+          </p>
           <span
-            ><iconify-icon icon="ion:ticket-sharp"></iconify-icon>&nbsp;2
+            ><iconify-icon icon="ion:ticket-sharp"></iconify-icon>&nbsp;<span
+              class="count me-2"
+            ></span>
             tickets</span
           >
         </div>
         <div class="seat">
           <div>
-            <p>SEAT-</p>
-            <span></span>
+            <p>SEAT <i style="font-style: normal" id="seated1"></i></p>
+            <span class="seatedspan"></span>
           </div>
           <div>
-            <p>SEAT-</p>
-            <span></span>
+            <p>SEAT <i style="font-style: normal" id="seated2"></i></p>
+            <span class="seatedspan"></span>
           </div>
         </div>
         <div class="line"></div>
         <div class="floor top">
-          <p>0 Selected</p>
+          <p class="d-flex"><span class="count me-2"></span> Selected</p>
           <span id="transferBtn" class="btnStyle">
             TRANSFER T0
             <iconify-icon icon="dashicons:arrow-right-alt2"></iconify-icon>
@@ -166,10 +183,11 @@
         <form action="" class="modal-form">
           <p></p>
           <span class="span">
-            Sec&nbsp;{sec}
+            Sec&nbsp;<span id="secnum"></span>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Row
-            {row} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Seat&nbsp;{seat}
+            <span id="rownum"></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Seat&nbsp;<span id="seatnum"></span>
           </span>
           <label for="">First Name</label>
           <input type="text" placeholder="First Name" />
@@ -185,7 +203,9 @@
               <MdArrowBackIos />
               <span class="backBtn btnStyle">BACK</span>
             </span>
-            <button class="transfer-form-btn">Transfer</button>
+            <button class="transfer-form-btn">
+              Transfer <span class="count"></span> Tickets
+            </button>
           </div>
         </form>
       </div>
